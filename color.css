@@ -62,7 +62,7 @@ button:hover {
   background-color: steelblue;
 }
 
-#statusMessage {
+#displayMessage {
   display: inline-block;
   width: 25%
 }

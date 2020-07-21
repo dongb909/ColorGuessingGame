@@ -1,0 +1,15 @@
+-Template string uses ${} not $()
+-if want to select 1 tag then do querySelector or else if querySelectorAll you need to loop through the returned array
+-function name () {} must use "this." to refer to the event obj
+-let name = () => {} "THIS" is applied instrinsically
+-tag.style.backgroundColor = " "
+-tag.textContent = " " 
+-Events
+  - e.target.style.backgroundColor
+  - e.target.textContent
+
+
+
+
+-Questions:
+  -When you use e.preventDefault
