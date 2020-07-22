@@ -1,12 +1,20 @@
-let squareNums = 6
+let squareNums = 6;
 let squares = document.querySelectorAll(".square");
 let displayMessage = document.getElementById('displayMessage');
 let resetButton = document.querySelector('#setup');
 let h1 = document.querySelector('h1');
 let modes = document.querySelectorAll('.mode');
 
+init();
+
 function init() {
-  //add mode event listeners
+  modeListeners(); //add mode event listeners
+  newGameListeners(); //add resetBtn event listener
+  squareListeners(); //add square event listeners
+  reset();
+}
+
+function modeListeners(){
   modes.forEach(modeBtn => {
     modeBtn.addEventListener("click", e => { 
       modes[0].classList.toggle("selected");
@@ -15,7 +23,16 @@ function init() {
       reset();
     })
   })
-  //add square event listeners
+}
+
+function newGameListeners() {
+  resetButton.addEventListener("click", e => {
+    reset();
+    e.target.textContent = "New Colors";
+  })
+}
+
+function squareListeners(){
   squares.forEach(square => {square.addEventListener("click", (e) => {
       if (e.target.style.backgroundColor === pickedColor){
         displayMessage.textContent = "Correcto!!";
@@ -28,14 +45,7 @@ function init() {
       }
     })
   })
-  //add resetBtn event listener
-  resetButton.addEventListener("click", e => {
-    reset();
-    e.target.textContent = "New Colors";
-  })
-  reset();
 }
- init();
 
 function getRandomeColors(num) {
   let rgbs = [];
