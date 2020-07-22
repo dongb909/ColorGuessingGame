@@ -1,5 +1,4 @@
 let squareNums = 6
-// let colors = getRandomeColors(squareNums);
 let squares = document.querySelectorAll(".square");
 let displayMessage = document.getElementById('displayMessage');
 let resetButton = document.querySelector('#setup');
@@ -11,7 +10,9 @@ modes.forEach(modeBtn => {
     modes[0].classList.toggle("selected");
     modes[1].classList.toggle("selected");
     e.target.textContent === "Hard" ? squareNums = 6 : squareNums = 3;
+    reset();
   })
+})
 
 reset();
 
@@ -31,7 +32,8 @@ function applyColorsToSquares(colors) {
   document.getElementById("targetColor").textContent = pickedColor;
   for(let i = 0; i < squares.length; i++) {
     //add initial colors to squares
-    squares[i].style.backgroundColor = colors[i];
+    if (colors[i]) squares[i].style.backgroundColor = colors[i];
+    else squares[i].style.backgroundColor = "#232323"
     //add event listeners to squares to compare to targetColor
     squares[i].addEventListener("click", (e) => {
       if (e.target.style.backgroundColor === pickedColor){
@@ -56,11 +58,11 @@ function applyWinningColor(color) {
 function reset(){
   colors = getRandomeColors(squareNums);
   applyColorsToSquares(colors);
-  e.target.textContent = "New Colors";
   displayMessage.textContent = "";
   h1.style.backgroundColor = "steelblue";
 }
 
 resetButton.addEventListener("click", e => {
   reset();
+  e.target.textContent = "New Colors";
 })
