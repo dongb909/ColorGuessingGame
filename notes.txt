@@ -1,7 +1,12 @@
 -Template string uses ${} not $()
 -if want to select 1 tag then do querySelector or else if querySelectorAll you need to loop through the returned array
 -function name () {} must use "this." to refer to the event obj
+  -the entire function gets hoisted
 -let name = () => {} "THIS" is applied instrinsically
+  -function will not be hoisted
+-tag.classList IS NOT a function so don't have to do "()"
+-tag.classList.toggle("className") don't have to worry about the other names being affected
+
 -tag.style.backgroundColor = " "
 -tag.textContent = " " 
 -Events
@@ -13,3 +18,4 @@
 
 -Questions:
   -When you use e.preventDefault
+  -css .square{padding-bottom: 30%;????}

@@ -1,4 +1,21 @@
-let getRandomeColors = (num) => {
+let squareNums = 6
+// let colors = getRandomeColors(squareNums);
+let squares = document.querySelectorAll(".square");
+let displayMessage = document.getElementById('displayMessage');
+let resetButton = document.querySelector('#setup');
+let h1 = document.querySelector('h1');
+let modes = document.querySelectorAll('.mode');
+
+modes.forEach(modeBtn => {
+  modeBtn.addEventListener("click", e => { 
+    modes[0].classList.toggle("selected");
+    modes[1].classList.toggle("selected");
+    e.target.textContent === "Hard" ? squareNums = 6 : squareNums = 3;
+  })
+
+reset();
+
+function getRandomeColors(num) {
   let rgbs = [];
   let random = function() {
     return Math.floor(Math.random() * 256)
@@ -9,14 +26,7 @@ let getRandomeColors = (num) => {
   return rgbs
 }
 
-let colors = getRandomeColors(6);
-let squares = document.querySelectorAll(".square");
-let displayMessage = document.getElementById('displayMessage');
-let resetButton = document.querySelector('#setup')
-let h1 = document.querySelector('h1')
-
-
-let applyColorsToSquares = function (colors) {
+function applyColorsToSquares(colors) {
   pickedColor = colors[Math.floor(Math.random() * colors.length)];
   document.getElementById("targetColor").textContent = pickedColor;
   for(let i = 0; i < squares.length; i++) {
@@ -37,17 +47,20 @@ let applyColorsToSquares = function (colors) {
   }
 }
 
-applyColorsToSquares(colors);
 function applyWinningColor(color) {
-  squares.forEach(el => {
-    el.style.backgroundColor = color;
+  squares.forEach(square => {
+    square.style.backgroundColor = color;
   }) 
 }
 
-resetButton.addEventListener("click", e => {
-  colors = getRandomeColors(6)
+function reset(){
+  colors = getRandomeColors(squareNums);
   applyColorsToSquares(colors);
   e.target.textContent = "New Colors";
-  displayMessage.textContent = "Alright! Let's continue!";
-  h1.style.backgroundColor = "steelblue"
+  displayMessage.textContent = "";
+  h1.style.backgroundColor = "steelblue";
+}
+
+resetButton.addEventListener("click", e => {
+  reset();
 })

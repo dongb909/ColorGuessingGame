@@ -1,6 +1,7 @@
 body {
   background-color: #232323;
   margin: 0;
+  font-family: "Avenir", "Arial";
 }
 
 h1 {
@@ -10,7 +11,7 @@ h1 {
   background-color: steelblue;
   margin: 0;
   text-transform: uppercase;
-  line-height: 1.3;
+  line-height: 1.2;
   padding: 12px 0;
 }
 
@@ -27,7 +28,7 @@ h1 {
 .square {
   width: 30%;
   background-color: rgb(221, 90, 90);
-  padding-bottom: 30%; /*???*/
+  padding-bottom: 30%; 
   float: left;
   margin: 1.66%;
   border-radius: 10%;
@@ -51,9 +52,9 @@ button {
   color: steelblue;
   letter-spacing: 1px;
   font-size: inherit;
-  transition: all 1s;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
+  transition: all .5s;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
   outline: none;
 }
 
@@ -65,4 +66,8 @@ button:hover {
 #displayMessage {
   display: inline-block;
   width: 25%
+}
+
+.selected {
+  
 }
