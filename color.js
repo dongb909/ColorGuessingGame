@@ -5,16 +5,37 @@ let resetButton = document.querySelector('#setup');
 let h1 = document.querySelector('h1');
 let modes = document.querySelectorAll('.mode');
 
-modes.forEach(modeBtn => {
-  modeBtn.addEventListener("click", e => { 
-    modes[0].classList.toggle("selected");
-    modes[1].classList.toggle("selected");
-    e.target.textContent === "Hard" ? squareNums = 6 : squareNums = 3;
-    reset();
+function init() {
+  //add mode event listeners
+  modes.forEach(modeBtn => {
+    modeBtn.addEventListener("click", e => { 
+      modes[0].classList.toggle("selected");
+      modes[1].classList.toggle("selected");
+      e.target.textContent === "Hard" ? squareNums = 6 : squareNums = 3;
+      reset();
+    })
   })
-})
-
-reset();
+  //add square event listeners
+  squares.forEach(square => {square.addEventListener("click", (e) => {
+      if (e.target.style.backgroundColor === pickedColor){
+        displayMessage.textContent = "Correcto!!";
+        applyWinningColor(pickedColor);
+        h1.style.backgroundColor = pickedColor;
+        resetButton.textContent = "Play Again?";
+      } else {
+        e.target.style.backgroundColor = "#232323";
+        displayMessage.textContent = "Alomost! Try Again";
+      }
+    })
+  })
+  //add resetBtn event listener
+  resetButton.addEventListener("click", e => {
+    reset();
+    e.target.textContent = "New Colors";
+  })
+  reset();
+}
+ init();
 
 function getRandomeColors(num) {
   let rgbs = [];
@@ -34,18 +55,6 @@ function applyColorsToSquares(colors) {
     //add initial colors to squares
     if (colors[i]) squares[i].style.backgroundColor = colors[i];
     else squares[i].style.backgroundColor = "#232323"
-    //add event listeners to squares to compare to targetColor
-    squares[i].addEventListener("click", (e) => {
-      if (e.target.style.backgroundColor === pickedColor){
-        displayMessage.textContent = "Correcto!!";
-        applyWinningColor(pickedColor);
-        h1.style.backgroundColor = pickedColor;
-        resetButton.textContent = "Play Again?";
-      } else {
-        e.target.style.backgroundColor = "#232323";
-        displayMessage.textContent = "Alomost! Try Again";
-      }
-    })
   }
 }
 
@@ -61,8 +70,3 @@ function reset(){
   displayMessage.textContent = "";
   h1.style.backgroundColor = "steelblue";
 }
-
-resetButton.addEventListener("click", e => {
-  reset();
-  e.target.textContent = "New Colors";
-})
