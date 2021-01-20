@@ -6,12 +6,14 @@ Player can choose to give up and get new colors, or choose to play again after t
 </br>
 - - - -
 </br>
-<h3>The game starts out with 3 or 6 different colors to choose from</h3>
+:joystick:
+<h5>• The game starts out with 3 or 6 different colors to choose from</h5>
 <div align="center">
   <img width="480" height="300" src="./gameStart.png"/>
 </div>
 </br>
-<h3> When the correct color is chosen, the all other boxes and banner will transition to the winning color!</h3>
+:confetti_ball: :trophy:
+<h5>• When the correct color is chosen, the all other boxes and banner will transition to the winning color!</h5>
 <div align="center">
   <img align="center" width="480" height="300" src="./gameWin.png">
 </div>
