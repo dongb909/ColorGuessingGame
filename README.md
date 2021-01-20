@@ -6,16 +6,15 @@ Player can choose to give up and get new colors, or choose to play again after t
 </br>
 - - - -
 </br>
-## The game starts out with 3 or 6 different colors to choose from
-![Alt startingGameImage](./gameStart.png.jpg "Title")
+<h3>The game starts out with 3 or 6 different colors to choose from</h3>
 <div align="center">
-  <img width="480" height="290" src="./gameStart.png"/>
+  <img width="480" height="300" src="./gameStart.png"/>
 </div>
 </br>
-## When the correct color is chosen, the all other boxes and banner will transition to the winning color!
+<h3> When the correct color is chosen, the all other boxes and banner will transition to the winning color!</h3>
 <div align="center">
   <img align="center" width="480" height="300" src="./gameWin.png">
 </div>
 </br>
 </br>
-
+[Click here to start playing!](https://color-guessing-game.vercel.app/)
